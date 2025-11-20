@@ -8,13 +8,17 @@ package jdbc.proyecto;
  *
  * @author Mauri
  */
+
+import java.sql.Connection;
+
 public class JDBCProyecto {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        try (Connection conn = conexion.getConnection()) {
+            System.out.println("Conexión exitosa. Base: " + conn.getCatalog());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    
+
 }
